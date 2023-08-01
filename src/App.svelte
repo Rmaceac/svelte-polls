@@ -6,12 +6,16 @@
 	// tabs
 	let tabLabels = ['Current Polls', 'Add New Poll'];
 	let activeTab = ['Current Polls'];
+
+	const tabChange = (e) => {
+		activeTab = e.detail;
+	}
 </script>
 
 <main>
 	<Header />
 	<main>
-		<Tabs {tabLabels} {activeTab}/>
+		<Tabs {tabLabels} {activeTab} on:tabChange={tabChange}/>
 	</main>
 	<Footer />
 </main>
