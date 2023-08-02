@@ -6,7 +6,7 @@
 
 	// tabs
 	let tabLabels = ['Current Polls', 'Add New Poll'];
-	let activeTab = ['Current Polls'];
+	let activeTab = 'Current Polls';
 
 	const tabChange = (e) => {
 		activeTab = e.detail;

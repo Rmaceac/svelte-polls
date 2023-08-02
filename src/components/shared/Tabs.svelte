@@ -11,7 +11,7 @@
   <ul>
     {#each tabLabels as tab}
       <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <li on:click={() => dispatch('tabChange', tab)}>
+      <li on:click={() => dispatch("tabChange", tab)}>
         <div class:active={tab === activeTab}>{tab}</div>
       </li>
     {/each}
