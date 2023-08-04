@@ -10,7 +10,7 @@
 
   const handleSubmit = () => {
     let valid = true;
-    console.log(fields);
+    
     // validate question
     if (fields.question.trim().length < 5) {
       valid = false;

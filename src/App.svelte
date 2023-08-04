@@ -22,7 +22,7 @@
 	const handleAdd = (e) => {
 		const poll = e.detail;
 		polls = [poll, ...polls];
-		console.log('polls: ', polls);
+		activeTab = 'Current Polls';
 	}
 
 	const tabChange = (e) => {
