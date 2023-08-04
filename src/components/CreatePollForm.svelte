@@ -10,22 +10,23 @@
 
   const handleSubmit = () => {
     let valid = true;
+    console.log(fields);
     // validate question
-    if (fields.question.trim.length < 5) {
+    if (fields.question.trim().length < 5) {
       valid = false;
       errors.question = "Question must be at least five (5) characters long";
     } else {
       errors.question = "";
     }
     // validate answer A
-    if (fields.answerA.trim.length < 1) {
+    if (fields.answerA.trim().length < 1) {
       valid = false;
       errors.answerA = "You must enter a value for answer A";
     } else {
       errors.answerA = "";
     }
     // validate answer B
-    if (fields.answerB.trim.length < 1) {
+    if (fields.answerB.trim().length < 1) {
       valid = false;
       errors.answerB = "You must enter a value for answer B";
     } else {
@@ -34,6 +35,7 @@
     // add a new poll
     if (valid) {
       let poll = {...fields, votesA: 0, votesB: 0, id: uuidv4()}
+      dispatch("add", poll);
     }
   }
 </script>
