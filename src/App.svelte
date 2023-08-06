@@ -29,6 +29,11 @@
 	const tabChange = (e) => {
 		activeTab = e.detail;
 	}
+
+	const handleVote = (e) => {
+		const { option, id } = e.detail;
+		let pollsCopy = [...polls]
+	}
 </script>
 
 <main>
@@ -36,7 +41,7 @@
 	<main>
 		<Tabs {tabLabels} {activeTab} on:tabChange={tabChange}/>
 		{#if activeTab === 'Current Polls'}
-			<PollList {polls} />
+			<PollList {polls} on:vote{handleVote}/>
 		{:else if activeTab === 'Add New Poll'}
 			<CreatePollForm on:add={handleAdd}/>
 		{/if}
