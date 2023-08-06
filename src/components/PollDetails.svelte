@@ -21,12 +21,12 @@
       <p>Total votes: { totalVotes  }</p>
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <div class="answer" on:click={() => {handleVote('a', poll.id)}}>
-        <div class="percent percent-a"></div>
+        <div class="percent percent-a" style="width: {percentageA}%"></div>
         <span>{poll.answerA} ({poll.votesA})</span>
       </div>
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <div class="answer" on:click={() => {handleVote('b', poll.id)}}>
-        <div class="percent percent-b"></div>
+        <div class="percent percent-b" style="width: {percentageB}%"></div>
         <span>{poll.answerB} ({poll.votesB})</span>
       </div>
     </div>
@@ -66,11 +66,9 @@
   }
 
   .percent-a {
-    width: 25%;
     background: rgba(217,27,66,0.2);
   }
   .percent-b {
-    width: 75%;
     background: rgba(69,196,150,0.2);
   }
 </style>
