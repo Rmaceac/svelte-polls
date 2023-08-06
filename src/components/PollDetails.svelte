@@ -17,11 +17,13 @@
     <div class="poll">
       <h3>{poll.question}</h3>
       <p>Total votes: { totalVotes  }</p>
-      <div class="answer" on:click{() => {handleVote('a', poll.id)}}>
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <div class="answer" on:click={() => {handleVote('a', poll.id)}}>
         <div class="percent percent-a"></div>
         <span>{poll.answerA} ({poll.votesA})</span>
       </div>
-      <div class="answer" on:click{() => {handleVote('b', poll.id)}}>
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <div class="answer" on:click={() => {handleVote('b', poll.id)}}>
         <div class="percent percent-b"></div>
         <span>{poll.answerB} ({poll.votesB})</span>
       </div>
