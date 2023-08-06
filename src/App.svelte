@@ -34,6 +34,15 @@
 		const { option, id } = e.detail;
 		let pollsCopy = [...polls];
 		let upvotedPolls = pollsCopy.find((poll) => id === poll.id)
+
+		if (option === 'a') {
+			upvotedPolls.votesA++;
+		}
+		if (option === 'b') {
+			upvotedPolls.votesB++;
+		}
+
+		polls = pollsCopy;
 	}
 </script>
 
@@ -42,7 +51,7 @@
 	<main>
 		<Tabs {tabLabels} {activeTab} on:tabChange={tabChange}/>
 		{#if activeTab === 'Current Polls'}
-			<PollList {polls} on:vote{handleVote}/>
+			<PollList {polls} on:vote={handleVote}/>
 		{:else if activeTab === 'Add New Poll'}
 			<CreatePollForm on:add={handleAdd}/>
 		{/if}
