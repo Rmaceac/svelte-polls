@@ -1,10 +1,31 @@
 <script>
+  // import { onMount, onDestroy } from "svelte";
+  
+  import PollStore from "../stores/PollStore";
   import PollDetails from "./PollDetails.svelte";
-  export let polls = [];
+
+  //WITH AUTO-SUBSCRIPTION IN EACH LOOP BELOW, LOCAL VAR NO LONGER NEEDED
+  // export let polls = [];
+
+  // MANUAL SUBSCRIBE AND UNSUBSCRIBE OF POLLSTORE DATA. VERY VERBOSE
+  // const unsubscribe = PollStore.subscribe(data => {
+  //   polls = data;
+  // })
+
+  // onMount(() => {
+  //   console.log("Component mounted");
+  // })
+
+  // onDestroy(() => {
+  //   console.log("Component destroyed");
+  //   unsubscribe();
+  // })
 </script>
 
 <div class="poll-list">
-  {#each polls as poll (poll.id)}
+  <!-- instead of manually subbing/unsubbing, simply add a '$' -->
+  <!-- in front of the store reference to auto-sub/unsub -->
+  {#each $PollStore as poll (poll.id)}
     <div>
       <PollDetails {poll} on:vote />
     </div>
