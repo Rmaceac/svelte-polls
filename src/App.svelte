@@ -9,9 +9,7 @@
 	let tabLabels = ['Current Polls', 'Add New Poll'];
 	let activeTab = 'Current Polls';
 
-	const handleAdd = (e) => {
-		const poll = e.detail;
-		polls = [poll, ...polls];
+	const handleTabChange = () => {
 		activeTab = 'Current Polls';
 	}
 
@@ -42,7 +40,7 @@
 		{#if activeTab === 'Current Polls'}
 			<PollList on:vote={handleVote}/>
 		{:else if activeTab === 'Add New Poll'}
-			<CreatePollForm on:add={handleAdd}/>
+			<CreatePollForm on:add={handleTabChange}/>
 		{/if}
 	</main>
 	<Footer />
