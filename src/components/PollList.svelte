@@ -27,7 +27,7 @@
   <!-- in front of the store reference to auto-sub/unsub -->
   {#each $PollStore as poll (poll.id)}
     <div>
-      <PollDetails {poll} on:vote />
+      <PollDetails {poll} />
     </div>
   {/each}
 </div>
