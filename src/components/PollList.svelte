@@ -1,6 +1,6 @@
 <script>
   // import { onMount, onDestroy } from "svelte";
-  
+  import { fade, slide, scale } from "svelte/transition";
   import PollStore from "../stores/PollStore";
   import PollDetails from "./PollDetails.svelte";
 
@@ -26,7 +26,7 @@
   <!-- instead of manually subbing/unsubbing, simply add a '$' -->
   <!-- in front of the store reference to auto-sub/unsub -->
   {#each $PollStore as poll (poll.id)}
-    <div>
+    <div in:fade out:scale|local>
       <PollDetails {poll} />
     </div>
   {/each}
