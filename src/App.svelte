@@ -11,11 +11,11 @@
 
 	const handleAdd = () => {
 		activeTab = 'Current Polls';
-	}
+	};
 
 	const tabChange = (e) => {
 		activeTab = e.detail;
-	}
+	};
 
 </script>
 

@@ -1,4 +1,6 @@
 <script>
+  import { tweened } from "svelte/motion";
+  
   import Card from "./shared/Card.svelte";
   import Button from "./shared/Button.svelte";
   import PollStore from "../stores/PollStore";
