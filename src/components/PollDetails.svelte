@@ -12,6 +12,13 @@
   $: percentageA = Math.floor(poll.votesA / totalVotes * 100);
   $: percentageB = Math.floor(poll.votesB / totalVotes * 100);
 
+  // tweened animation variables
+  const tweenedA = tweened(0);
+  const tweenedB = tweened(0);
+
+  $: tweenedA.set(percentA);
+  $: tweenedB.set(percentB);
+
   const handleVote = (option, id) => {
     PollStore.update(currentPolls => {
       let pollsCopy = [...currentPolls];
@@ -41,12 +48,12 @@
       <p>Total votes: { totalVotes  }</p>
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <div class="answer" on:click={() => {handleVote('a', poll.id)}}>
-        <div class="percent percent-a" style="width: {percentageA}%"></div>
+        <div class="percent percent-a" style="width: {$tweenedA}%"></div>
         <span>{poll.answerA} ({poll.votesA})</span>
       </div>
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <div class="answer" on:click={() => {handleVote('b', poll.id)}}>
-        <div class="percent percent-b" style="width: {percentageB}%"></div>
+        <div class="percent percent-b" style="width: {$tweenedB}%"></div>
         <span>{poll.answerB} ({poll.votesB})</span>
       </div>
     </div>
