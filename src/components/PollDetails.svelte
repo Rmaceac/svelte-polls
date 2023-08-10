@@ -9,15 +9,15 @@
 
   // reactive values
   $: totalVotes = poll.votesA + poll.votesB;
-  $: percentageA = Math.floor(poll.votesA / totalVotes * 100);
-  $: percentageB = Math.floor(poll.votesB / totalVotes * 100);
+  $: percentageA = Math.floor(poll.votesA / totalVotes * 100) || 0;
+  $: percentageB = Math.floor(poll.votesB / totalVotes * 100) || 0;
 
   // tweened animation variables
   const tweenedA = tweened(0);
   const tweenedB = tweened(0);
 
-  $: tweenedA.set(percentA);
-  $: tweenedB.set(percentB);
+  $: tweenedA.set(percentageA);
+  $: tweenedB.set(percentageB);
 
   const handleVote = (option, id) => {
     PollStore.update(currentPolls => {
